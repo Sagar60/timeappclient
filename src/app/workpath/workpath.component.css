@@ -1,0 +1,47 @@
+nav{
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+li{
+    float: left;
+}
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover{
+    color:blue;
+}
+.header{
+    text-align: center;
+    color: blueviolet;
+    margin: 5px;
+    padding: 0;
+
+}
+#user-login { 
+    position: absolute;
+    right: 0;
+    top: 6px;
+    display: flexbox;
+
+}
+#user-login a{ 
+    padding: 3px;
+    margin: 15px;
+    background-color: blueviolet;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+
+}

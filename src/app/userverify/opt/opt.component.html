@@ -1,0 +1,46 @@
+<div class="outer">
+    <div class="inner">
+        <div class="container ">
+            <form #optForm='ngForm' (ngSubmit)="optForm.valid && onSubmit(optForm) " >
+                <div class="mb-4">
+                    <h4>Choose how you want to verify your account</h4>
+                </div>
+                <div class="mb-5">
+                    <input type="text" value="{{model.email}}" name="email" #email="ngModel" [(ngModel)]="model.email" hidden>
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="model.name" hidden >
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="verifyoption" #verifyoption="ngModel" [(ngModel)]="model.verifyoption" value="email" id="email" required >
+                        <label class="form-check-label" for="email">Send OTP to e-mail <span class="useremail">({{model.email}})</span> </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="verifyoption" value="app" id="app" #verifyoption="ngModel" [(ngModel)]="model.verifyoption" required>
+                        <label class="form-check-label" for="app">Authentication app</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="verifyoption" value="mobile" id="mobile" #verifyoption="ngModel" [(ngModel)]="model.verifyoption" required>
+                        <label class="form-check-label" for="mobile">mobile</label>
+                    </div>
+                    <div *ngIf="optForm.submitted && verifyoption.errors" class="bg-danger">
+                        <label class="text-light" *ngIf="verifyoption.errors.required">Plase Select any option</label>
+                      </div>
+                </div>
+                <div [class]="progressBarDisplay">
+                    <span style="width: 100%"></span>
+                </div>
+                <div class="row float-right">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary " [disabled]="isNextdisabled" >Next</button>
+                    </div>
+                </div>                
+            </form>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" (click)="gotoprev()">Back</button>
+                </div>
+            </div>
+            <div class="alert" [class]="successOrError" *ngIf="successOrError">
+                <p>{{successOrErrorMsg}}</p>
+            </div>
+        </div>
+    </div>
+</div>

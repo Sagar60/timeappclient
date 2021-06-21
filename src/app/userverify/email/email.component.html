@@ -1,0 +1,38 @@
+<div class="outer">
+    <div class="inner">
+        <div class="container ">
+            <form #verifyEmailForm='ngForm' (ngSubmit)="verifyEmailForm.valid && onSubmit(verifyEmailForm) " >
+                <div class="mb-4">
+                    <h4>Enter the OTP that had sent to your e-mail</h4>
+                </div>
+                <input type="text" name="id" #id="ngModel" [(ngModel)]="model.id" hidden >
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="model.email" hidden >
+                <div class="mb-5">
+                    <div class="form-check">
+                        <input type="number" name="OTP" #OTP="ngModel" [(ngModel)]="model.OTP"  
+                        class="form-control" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" 
+                        placeholder="6 digits OTP" required minlength="6" autofocus >
+                    </div>
+                    <div *ngIf="verifyEmailForm.submitted && OTP.errors" class="verifytag bg-danger">
+                        <p class="text-light" *ngIf="OTP.errors.required">OTP you received cannot be blank</p>
+                        <p class="text-light" *ngIf="OTP.errors.minlength">OTP you received cannot be less than 6 digits</p>
+                      </div>
+                </div>
+                
+                <div class="row float-right">
+                    <div class="col text-right">
+                        <button type="submit" class="btn btn-primary " [disabled]="isNextdisabled" >Next</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" (click)="gotoprev()">Back</button>
+                </div>
+            </div>
+            <div class="alert mb-5" [class]="successOrError" *ngIf="successOrError">
+                <p>{{successOrErrorMsg}}</p>
+            </div>
+        </div>
+    </div>
+</div>

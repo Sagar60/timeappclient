@@ -1,0 +1,18 @@
+<div id="mysidenav" class="sidenav" #mysidenav>
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">
+        &times;
+    </a>
+
+    <a href="#" routerLink="about">About</a>
+    <a href="#"routerLink="service">Services</a>
+    <a href="#" routerLink="client">Clients</a>
+    <a href="#"routerLink="contact">Contact</a>
+</div>
+
+<span style="font-size:30px;cursor:pointer" (click)="openNav()">
+    &#9776; open
+</span>
+
+<p >Home works!</p>
+
+<router-outlet></router-outlet>

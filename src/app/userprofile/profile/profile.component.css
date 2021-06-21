@@ -1,0 +1,72 @@
+.profile{
+    /* padding-top: 40px; */
+    /* margin-top: 50px; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: fixed;
+    width: 100%;
+    height: 95vh ;
+    overflow: auto;
+    background-image: url('../../../assets/images/profileBackground.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.profileimg img{
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+
+}
+.userDetails h4{
+    text-decoration: underline;
+    color: red;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+span{
+    font-weight: bold;
+    font-size: 16px;
+
+}
+.col label{
+    font-weight: bold;
+    font-size: 16px;
+
+}
+.update input{
+    background-color: #34e707;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+}
+#cancelOpt button{
+    background-color: #f50404;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+}
+.container{
+    margin-top: 20px;
+
+}
+
+.changePassword-div{
+    position: relative;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 1s;
+    box-shadow: 0 10px 30px 0 rgb(172 168 168 / 53%);
+    float: right;
+    margin: 5px;
+}
+.changePassword-div a{
+    color: black;
+}
+.dropdown-toggle::after{
+    content: none;
+}

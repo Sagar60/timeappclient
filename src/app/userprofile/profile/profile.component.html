@@ -1,0 +1,75 @@
+<!-- <p>profile works!</p> -->
+
+<div class="profile">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="changePassword-div dropdown">
+                    <a class="dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-v" style="font-size:20px; padding: 5px;"></i>                
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" routerLink="/userprofile/changepassword">Change password</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col profileimg">
+                        <img [src]="getPic(model.profileImageName)" alt="">
+                    </div>
+                    <div class="col userDetails">
+                        <h4>User Profile</h4>
+                        <div class="row" hidden>
+                            <input type="text" name="" id="_id" #_id="ngModel" [(ngModel)]="model._id"  >
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="">First Name:</label>
+                            </div>
+                            <div class="col">
+                                <span>{{model.firstname}} </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="">Last Name:</label>
+                            </div>
+                            <div class="col">
+                                <span>{{model.lastname}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="">Email&nbsp;Id:</label>
+                            </div>
+                            <div class="col">
+                                <span>{{model.email}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="">Date&nbsp;of&nbsp;Join:</label>
+                            </div>
+                            <div class="col">
+                                <span>{{model.date}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="file" hidden>
+                                <input type="file"class="form-control" accept="image/jpeg,image/png,image/jpg,image/x-png" name="file" (change)="onSelectFile($event)">
+                            </div>
+                            <div class="col" id="cancelOpt" hidden>
+                                <button (click)="cancelpic()" id="cancelphoto" class="form-control">Cancel</button>
+                                <!-- <input type="button" class="form-control" id="update-btn" (click)="updatePic()" value="{{btnText}}"  -->
+                            </div>
+                            <div class="col update">
+                                <!-- <button type="button" class="form-control" (click)="updatePic()">{{btnText}}</button> -->
+                                <input type="button" class="form-control" id="update-btn" (click)="updatePic()" value="{{btnText}}" >
+                            </div>
+                            <div class="col" id="blank"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0" >
+    <div class="container">
+      <div class="card login-card" id="login-card" (mouseenter)="formOpen()" (mouseleave)="formClose()" #logincard>
+        <div class="row no-gutters" #innerview>
+          <div class="col-md-5">
+            <img src="../../assets//images/login2.jpg" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div id="brandImage" #brandImage  class="brand-wrapper">
+                <img src="../../assets/images/logo.svg" alt="logo" class="logo">
+              </div>
+              <p class="login-card-description">Create your account here</p>
+              <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" >
+                  <div class="row">
+                    <div class="col">
+                      <label for="firstname" class="sr-only">Name</label>
+                      <input type="text" name="firstname" id="firstname" #firstname="ngModel" [(ngModel)]="model.firstname" class="form-control md-1" placeholder="Enter first name" required
+                      [ngClass]="{'invalid-text': signUpForm.submitted && !firstname.valid}">
+                      <div class="alert alert-danger" *ngIf="signUpForm.submitted && firstname.errors" >
+                        <label class="text-danger" *ngIf="firstname.errors.required">Please enter Firstname</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <label for="lastname" class="sr-only">Name</label>
+                      <input type="text" name="lastname" id="lastname" #lastname="ngModel" [(ngModel)]="model.lastname" class="form-control md-1" placeholder="Enter last name" required
+                      [ngClass]="{'invalid-text': signUpForm.submitted && !lastname.valid}">
+                      <div class="alert alert-danger" *ngIf="signUpForm.submitted && lastname.errors" >
+                        <label class="text-danger" *ngIf="lastname.errors.required">Please enter Lastname</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" name="email" id="email" #email="ngModel" [(ngModel)]="model.email" class="form-control" placeholder="Email address" required
+                    [pattern]="emailRegex" [ngClass]="{'invalid-text': signUpForm.submitted && !email.valid}">
+                    <div class="alert alert-danger" *ngIf="signUpForm.submitted && email.errors" >
+                      <label class="text-danger" *ngIf="email.errors.required">Please enter email-id</label>
+                      <label class="text-danger" *ngIf="email.errors.pattern">Email is invalid</label>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password"  name="password" id="password" #password="ngModel" [(ngModel)]="model.password" class="form-control" placeholder="Enter password" required
+                    [pattern]="passwordRegex" (input)="passwordMatch()" [ngClass]="{'invalid-text': signUpForm.submitted && !password.valid}">
+                    <div class="{{serverMessageBoxColor}}" *ngIf="signUpForm.submitted && password.errors" >
+                      <label class="text-danger" *ngIf="password.errors.required">Please enter password</label>
+                      <p id="letter" *ngIf="lowercase" class="invalid">A <b>lowercase</b> letter</p>
+                      <p id="capital" *ngIf="uppercase" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                      <p id="number" *ngIf="specialcase" class="invalid">A <b>Special</b>Character</p>
+                      <p id="number" *ngIf="number" class="invalid">A <b>number</b></p>
+                      <p id="length" *ngIf="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
+                  </div>
+                  <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4" value="Register">
+              </form>
+              <div class="alert alert-danger " style="width: 80%;" *ngIf="serverErrorMessage">
+                <p>{{serverErrorMessage}}</p>
+                <p>{{emailInvalid}} </p> 
+              </div>
+                <p class="login-card-footer-text">Already have an account? <a (click)="Loginpage()" class="text-reset">Login here</a></p>
+                <nav class="login-card-footer-nav">
+                  <a href="javascript:void(0);">Terms of use.</a>
+                  <a href="javascript:void(0);">Privacy policy</a>
+                </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card login-card">
+        <img src="assets/images/login.jpg" alt="login" class="login-card-img">
+        <div class="card-body">
+          <h2 class="login-card-title">Login</h2>
+          <p class="login-card-description">Sign in to your account to continue.</p>
+          <form action="#!">
+            <div class="form-group">
+              <label for="email" class="sr-only">Email</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="password" class="sr-only">Password</label>
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-prompt-wrapper">
+              <div class="custom-control custom-checkbox login-card-check-box">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember me</label>
+              </div>              
+              <a href="#!" class="text-reset">Forgot password?</a>
+            </div>
+            <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+          </form>
+          <p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+        </div>
+      </div> -->
+    </div>
+  </main>
+
