@@ -2,12 +2,17 @@
   "name": "timeapp",
   "version": "0.0.0",
   "scripts": {
+    "heroku-postbuild": "ng build --prod",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server.js",
     "test": "ng test",
+    "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "engine":{
+    "node": "12.17.0",
+    "npm": "6.14.4"
   },
   "private": true,
   "dependencies": {
