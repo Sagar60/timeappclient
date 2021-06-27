@@ -12,7 +12,7 @@ export class UsersService {
 
   constructor( private http: HttpClient ) { }
 
-  baseUrl = 'http://localhost:4000/user/';
+  baseUrl = 'https://timeappbysagar.herokuapp.com/user/';
 
   noAuthHeader = {headers: new HttpHeaders({ 'Noauth': 'True' }) }
 
