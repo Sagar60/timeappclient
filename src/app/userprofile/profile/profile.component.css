@@ -67,6 +67,10 @@ span{
 .changePassword-div a{
     color: black;
 }
+.changePassword-div a i{
+    font-size:20px; 
+    padding: 5px;
+}
 .dropdown-toggle::after{
     content: none;
 }
